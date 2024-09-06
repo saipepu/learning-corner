@@ -27,7 +27,6 @@ type Quiz = {
   question: string;
   photo: string;
   options: Option[];
-  answer: string;
   point: number;
 }
 
@@ -35,6 +34,7 @@ type Option = {
   _id: string;
   content: string;
   photo: string;
+  isCorrect: boolean;
 }
 
 type Sentence = {

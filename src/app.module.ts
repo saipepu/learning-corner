@@ -7,6 +7,12 @@ import { MongooseModule } from '@nestjs/mongoose'
 import { UserSchema } from './user/schema/user.schema';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
+import { CourseModule } from './course/course.module';
+import { AssetModule } from './asset/asset.module';
+import { AuthModule } from './auth/auth.module';
+import { APP_FILTER, APP_INTERCEPTOR } from '@nestjs/core';
+import { TransformInterceptor } from './interceptors/transform.interceptor';
+import { AllExceptionsFilter } from './filters/all-exceptions.filter';
 
 @Module({
   imports: [
@@ -15,16 +21,25 @@ import { join } from 'path';
       envFilePath: '.env'
     }),
     MongooseModule.forRoot(process.env.MONGO_URI),
-    MongooseModule.forFeature([
-      { name: 'User', schema: UserSchema }
-    ]),
     ServeStaticModule.forRoot({
       rootPath: join(__dirname, '..', 'public'),
       exclude: ['/api*']
     }),
-    UserModule
+    UserModule,
+    CourseModule,
+    AssetModule,
+    AuthModule
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [
+    {
+      provide: APP_INTERCEPTOR,
+      useClass: TransformInterceptor
+    },
+    {
+      provide: APP_FILTER,
+      useClass: AllExceptionsFilter
+    }
+  ],
 })
 export class AppModule {}
