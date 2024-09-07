@@ -37,4 +37,4 @@ export class Course extends Document {
   script: Sentence[];
 }
 
-export const CourseSchmea = SchemaFactory.createForClass(Course);
+export const CourseSchema = SchemaFactory.createForClass(Course);

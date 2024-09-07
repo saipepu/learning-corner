@@ -2,7 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/commo
 import { AuthService } from './auth.service';
 import { ApiExtraModels, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { SignUpDto } from './dto/sign-up.dto';
-import { ApiNotSucessResponseHelper, ApiSuccessResponseHelper } from 'src/helpers/swagger.helper';
+import { ApiNotSuccessResponseHelper, ApiSuccessResponseHelper } from 'src/helpers/swagger.helper';
 import { SignInDto } from './dto/sign-in.dto';
 
 @ApiExtraModels(SignUpDto)
@@ -12,14 +12,14 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @ApiResponse(ApiSuccessResponseHelper(SignInDto.name))
-  @ApiResponse(ApiNotSucessResponseHelper())
+  @ApiResponse(ApiNotSuccessResponseHelper())
   @Post('signin')
   signin(@Body() body: SignInDto) {
     return this.authService.signin(body);
   }
 
   @ApiResponse(ApiSuccessResponseHelper(SignUpDto.name))
-  @ApiResponse(ApiNotSucessResponseHelper())
+  @ApiResponse(ApiNotSuccessResponseHelper())
   @Post('signup')
   signUp(@Body() body: SignUpDto) {
     return this.authService.signUp(body);

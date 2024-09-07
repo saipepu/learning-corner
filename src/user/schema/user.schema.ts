@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
 import { ApiProperty } from "@nestjs/swagger";
 import { Document } from "mongoose";
+import { Asset } from "src/asset/schema/asset.schema";
 import { Course } from "src/course/schema/course.schema";
 
 @Schema({
@@ -19,14 +20,24 @@ export class User extends Document {
   @Prop({ required: true })
   password: string;
 
+  // point
+  @ApiProperty({ example: 100, description: 'User point' })
+  @Prop({ required: false, default: 0 })
+  point: number;
+
+  // exp
+  @ApiProperty({ example: 100, description: 'User experience point' })
+  @Prop({ required: false, default: 0 })
+  exp: number;
+
   @ApiProperty({ example: 'User courses', description: 'User courses' })
   @Prop({ type: [Course], default: [] })
   courses: Course[];
 
   // user asset
   @ApiProperty({ example: 'asset _id', description: 'array of user asset' })
-  @Prop({ type: [String], default: [] })
-  asset: string[];
+  @Prop({ type: [Asset], default: [] })
+  assets: Asset[];
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

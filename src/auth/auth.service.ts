@@ -14,11 +14,13 @@ export class AuthService {
   ) {}
 
   async signin(body: SignInDto): Promise<any>{
-    const user = await this.userService.findOne({ email: body.email })
-    if(!user) {
+    let user: any = await this.userService.findAll({ email: body.email })
+
+    if(!user || user.length === 0) {
       throw new UnauthorizedException('User not found. Please sign up.')
     }
 
+    user = user[0]
     const isPasswordMatch = await bcrypt.compare(body.password, user.password)
     if(!isPasswordMatch) {
       throw new UnauthorizedException('Invalid password. Please try again.')
@@ -33,8 +35,10 @@ export class AuthService {
   async signUp(body : SignUpDto): Promise<any> {
 
     // Check if user already exist
-    const user = await this.userService.findOne({ email: body.email })
-    if(user) {
+    let user: any = await this.userService.findAll({ email: body.email })
+    console.log(user)
+
+    if(user.length > 0) {
       throw new UnauthorizedException('User already exist. Please login.')
     }
 

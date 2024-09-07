@@ -22,7 +22,7 @@ export function ApiSuccessResponseHelper(schema: string, array?: 'array') {
 }
 
 
-export function ApiNotSucessResponseHelper() {
+export function ApiNotSuccessResponseHelper() {
     return { 
         status: 400, schema: {
         properties: {
