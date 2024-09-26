@@ -1,6 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { Type } from "class-transformer";
-import { IsArray, IsNotEmpty, IsNumber, IsString } from "class-validator";
+import { IsArray, IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
 import { CreateOptionDto } from "./create-option.dto";
 import { Option } from "../schema/option.schema";
 
@@ -24,7 +24,7 @@ export class CreateQuizDto {
   readonly question: string;
 
   @ApiProperty({ example: 'http://image.com', description: 'Quiz photol url' })
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
   readonly photo: string;
 

@@ -17,7 +17,7 @@ export class Option extends Document {
 
   // photo
   @ApiProperty({ example: 'http://image.com', description: 'Option photol url' })
-  @Prop({ required: true })
+  @Prop()
   photo: string;
 }
 

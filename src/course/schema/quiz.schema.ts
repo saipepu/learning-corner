@@ -14,7 +14,7 @@ export class Quiz extends Document {
   question: string;
 
   @ApiProperty({ example: 'http://image.com', description: 'Quiz photol url' })
-  @Prop({ required: true })
+  @Prop()
   photo: string;
 
   @ApiProperty({ example: 'Quiz options', description: 'Quiz options' })

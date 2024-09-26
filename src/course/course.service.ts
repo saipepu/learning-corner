@@ -20,6 +20,15 @@ export class CourseService {
     return newCourse.save();
   }
 
+  // SET SCRIPT
+  async setScript(id: string, script: CreateSentenceDto[]) {
+    return await this.courseModel.findByIdAndUpdate(
+      id,
+      { script },
+      { new: true }
+    ).populate(['script', 'quizzes']).exec();
+  }
+
   // ADD SENTENCE
   async addSentence(id: string, sentence: CreateSentenceDto) {
     console.log(sentence, 'sentence')
@@ -48,11 +57,11 @@ export class CourseService {
     return await this.courseModel.findOne(query);
   }
 
-  async update(id: number, updateCourseDto: UpdateCourseDto) {
+  async update(id: string, updateCourseDto: UpdateCourseDto) {
     return await this.courseModel.findByIdAndUpdate(id, updateCourseDto, { new: true });
   }
 
-  async remove(id: number) {
+  async remove(id: string) {
     return await this.courseModel.findByIdAndDelete(id);
   }
 }

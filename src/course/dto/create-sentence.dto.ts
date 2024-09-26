@@ -1,5 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { IsNotEmpty, IsOptional } from "class-validator";
+import { Content } from "../schema/sentence.schema";
 
 export class CreateSentenceDto {
   @ApiProperty({ example: 'Sentence speaker', description: 'Sentence speaker' })
@@ -8,7 +9,7 @@ export class CreateSentenceDto {
 
   @ApiProperty({ example: 'Sentence content', description: 'Sentence content' })
   @IsNotEmpty()
-  readonly content: string;
+  readonly content: [Content];
 
   @ApiProperty({ example: 'http://audio.com', description: 'Sentence audio url' })
   @IsOptional()

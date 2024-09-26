@@ -1,0 +1,86 @@
+
+{
+  "content": [
+    {
+      "speaker": "speaker1",
+      "content": {
+        "English": "Hello, Welcome!",
+        "Roman": "S̄wạs̄dī khrạb cheiỵ khrạb",
+        "Thai": "สวัสดีครับเชิญครับ"
+      },
+      "audioFile": "HelloWelcome"
+    },
+    {
+      "speaker": "speaker1",
+      "content": {
+        "English": "Do you have all member?",
+        "Roman": "Mī xo membexr̒ h̄ịm khrạb",
+        "Thai": "มีโอเมมเบอร์ไหมครับ"
+      },
+      "audioFile": "DoYouHaveAllMember?"
+    },
+    {
+      "speaker": "speaker2",
+      "content": {
+        "English": "Yes, I have.",
+        "Roman": "Mī khrạb",
+        "Thai": "มีครับ"
+      },
+      "audioFile": "YesIHave"
+    },
+    {
+      "speaker": "speaker1",
+      "content": {
+        "English": "Do you want to warm it?",
+        "Roman": "Khuṇ xyāk xùn mạn h̄ịm",
+        "Thai": "คุณอยากอุ่นมันไหม"
+      },
+      "audioFile": "DoYouWantToWarmIt?"
+    },
+    {
+      "speaker": "speaker2",
+      "content": {
+        "English": "Yes",
+        "Roman": "khrạb",
+        "Thai": "ครับ"
+      },
+      "audioFile": "Krub"
+    },
+    {
+      "speaker": "speaker1",
+      "content": {
+        "English": "75 Baht, Please.",
+        "Roman": "75 Bāth",
+        "Thai": "75 บาท"
+      },
+      "audioFile": "75Baht"
+    },
+    {
+      "speaker": "speaker2",
+      "content": {
+        "English": "Free?",
+        "Roman": "Frī dị h̄ịm?",
+        "Thai": "ฟรีไดไหม?"
+      },
+      "audioFile": "Free?"
+    },
+    {
+      "speaker": "speaker1",
+      "content": {
+        "English": "Please enter your phone number",
+        "Roman": "Kd bexr̒ thorṣ̄ạphth̒ dị̂ ley kh̀a",
+        "Thai": "กดเบอร์โทรศัพท์ได้เลยค่ะ"
+      },
+      "audioFile": "PleaseEnterYourPhoneNumber"
+    },
+    {
+      "speaker": "speaker1",
+      "content": {
+        "English": "Done",
+        "Roman": "Cb khrạb",
+        "Thai": "จบครับ"
+      },
+      "audioFile": "Done"
+    }
+  ]
+}

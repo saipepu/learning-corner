@@ -1,5 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsNotEmpty, IsNumber, IsString } from "class-validator";
+import { IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
+import { Quiz } from "../schema/quiz.schema";
 
 export class CreateCourseDto {
   @ApiProperty({ example: 'Course title', description: 'Course title' })
@@ -26,4 +27,12 @@ export class CreateCourseDto {
   @IsNotEmpty()
   @IsString()
   readonly difficulty: string;
+
+  @ApiProperty({ example: 'Course quizzes', description: 'Course quizzes' })
+  @IsOptional()
+  readonly quizzes: Quiz[];
+
+  @ApiProperty({ example: 'Course script', description: 'Course script' })
+  @IsOptional()
+  readonly script: Sentence[];
 }

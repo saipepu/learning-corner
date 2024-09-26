@@ -1,0 +1,70 @@
+{
+  "quizzes": [
+    {
+      "question": "Xùn(อุ่น)",
+      "options": [
+        {
+          "content": "Wait",
+          "isCorrect": false
+        },
+        {
+          "content": "Warm",
+          "isCorrect": true
+        },
+        {
+          "content": "Cold",
+          "isCorrect": false
+        },
+        {
+          "content": "Hot",
+          "isCorrect": false
+        }
+      ],
+      "point": 10
+    },
+    {
+      "question": "Thorṣ̄ạphth̒(โทรศัพท์)",
+      "options": [
+        {
+          "content": "Member Card",
+          "isCorrect": false
+        },
+        {
+          "content": "Phone Number",
+          "isCorrect": true
+        },
+        {
+          "content": "Member Id",
+          "isCorrect": false
+        },
+        {
+          "content": "Member Number",
+          "isCorrect": false
+        }
+      ],
+      "point": 10
+    },
+    {
+      "question": "Mī khrạb(มีครับ)",
+      "options": [
+        {
+          "content": "Enter",
+          "isCorrect": false
+        },
+        {
+          "content": "I have",
+          "isCorrect": true
+        },
+        {
+          "content": "Bye",
+          "isCorrect": false
+        },
+        {
+          "content": "I will take",
+          "isCorrect": false
+        }
+      ],
+      "point": 10
+    }
+  ]
+}

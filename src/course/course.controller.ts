@@ -26,6 +26,14 @@ export class CourseController {
     return this.courseService.create(createCourseDto);
   }
 
+  // SET SCRIPT
+  @ApiResponse(ApiSuccessResponseHelper(Course.name))
+  @ApiResponse(ApiNotSuccessResponseHelper())
+  @Patch(':id/script')
+  setScript(@Param('id') id: string, @Body() script: CreateSentenceDto[]) {
+    return this.courseService.setScript(id, script);
+  }
+
   // ADD SENTENCE
   @ApiResponse(ApiSuccessResponseHelper(Course.name))
   @ApiResponse(ApiNotSuccessResponseHelper())
@@ -60,13 +68,13 @@ export class CourseController {
   @ApiResponse(ApiNotSuccessResponseHelper())
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateCourseDto: UpdateCourseDto) {
-    return this.courseService.update(+id, updateCourseDto);
+    return this.courseService.update(id, updateCourseDto);
   }
 
   @ApiResponse(ApiSuccessResponseHelper(Course.name))
   @ApiResponse(ApiNotSuccessResponseHelper())
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.courseService.remove(+id);
+    return this.courseService.remove(id);
   }
 }
