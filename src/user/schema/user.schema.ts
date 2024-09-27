@@ -32,12 +32,12 @@ export class User extends Document {
   exp: number;
 
   @ApiProperty({ example: 'course _id', description: 'array of user course' })
-  @Prop({ type: [mongoose.Schema.Types.ObjectId], default: [] })
+  @Prop({ type: [mongoose.Schema.Types.ObjectId], ref: 'Course', default: [] })
   courses: Course[];
 
   // user asset
   @ApiProperty({ example: 'asset _id', description: 'array of user asset' })
-  @Prop({ type: [mongoose.Schema.Types.ObjectId], default: [] })
+  @Prop({ type: [mongoose.Schema.Types.ObjectId], ref: 'Asset', default: [] })
   assets: Asset[];
 }
 
