@@ -63,7 +63,7 @@ export class UserController {
   @ApiResponse(ApiNotSuccessResponseHelper())
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.userService.remove(+id);
+    return this.userService.remove(id);
   }
 
   @Delete()

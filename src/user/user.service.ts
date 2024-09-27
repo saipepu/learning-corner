@@ -52,7 +52,7 @@ export class UserService {
     return await this.userModel.findByIdAndUpdate(id, { $push: { assets: existingAsset }, $inc: { point: -existingAsset.point } }, { new: true }).populate(['courses', 'assets']).exec();
   }
 
-  async remove(id: number) {
+  async remove(id: string) {
     return await this.userModel.findByIdAndDelete(id)
   }
 
