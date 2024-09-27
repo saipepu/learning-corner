@@ -55,7 +55,9 @@ export class AuthService {
     let user: any = await this.userService.findAll({ email: body.email })
 
     if(!user || user.length === 0) {
-      this.signUp({ email: body.email, password: body.firebaseId, name: body.name })
+      const hashedPassword = await bcrypt.hash(body.firebaseId, 10)
+      const newUser = this.userService.create({...body, password: hashedPassword})
+      return newUser
     } else {
       user = user[0]
       let dto = { ...user.toObject() }
