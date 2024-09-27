@@ -23,7 +23,7 @@ export class UserService {
   }
 
   async findAll(query?: Query) : Promise<User[]> {
-    return await this.userModel.find(query).populate(['courses', 'assets']).exec();
+    return (await this.userModel.find(query).populate(['courses', 'assets']).exec()).sort((a, b) => b.exp - a.exp);
   }
 
   async findById(id: string): Promise<User> {
