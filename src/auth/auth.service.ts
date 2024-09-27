@@ -54,15 +54,14 @@ export class AuthService {
   async signInWithFirebaseId(body: SignUpFirebaseDto): Promise<any> {
     let user: any = await this.userService.findAll({ email: body.email })
 
+    let responseUser = null
     if(!user || user.length === 0) {
       const hashedPassword = await bcrypt.hash(body.firebaseId, 10)
-      const newUser = this.userService.create({...body, password: hashedPassword})
-      return newUser
+      responseUser = await this.userService.create({...body, password: hashedPassword})
     } else {
-      user = user[0]
-      let dto = { ...user.toObject() }
-      return { ...dto }
+      responseUser = user[0]
     }
+    return await this.userService.findById(responseUser._id as string)
 
   }
 

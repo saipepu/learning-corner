@@ -27,7 +27,7 @@ export class UserService {
   }
 
   async findById(id: string): Promise<User> {
-    return this.userModel.findById(id)
+    return await this.userModel.findById(id).populate(['courses', 'assets']).exec();
   }
 
   async update(id: string, updateUserDto: any) {
