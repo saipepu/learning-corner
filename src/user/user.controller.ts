@@ -55,8 +55,8 @@ export class UserController {
   @ApiResponse(ApiSuccessResponseHelper(User.name))
   @ApiResponse(ApiNotSuccessResponseHelper())
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-    return this.userService.update(+id, updateUserDto);
+  update(@Param('id') id: string, @Body() updateUserDto: any) {
+    return this.userService.update(id, updateUserDto);
   }
 
   @ApiResponse(ApiSuccessResponseHelper(User.name))

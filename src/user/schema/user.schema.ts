@@ -33,7 +33,7 @@ export class User extends Document {
 
   @ApiProperty({ example: 'course _id', description: 'array of user course' })
   @Prop({ type: [mongoose.Schema.Types.ObjectId], default: [] })
-  courseIds: Course[];
+  courses: Course[];
 
   // user asset
   @ApiProperty({ example: 'asset _id', description: 'array of user asset' })

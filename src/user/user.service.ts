@@ -30,7 +30,7 @@ export class UserService {
     return this.userModel.findById(id)
   }
 
-  async update(id: number, updateUserDto: UpdateUserDto) {
+  async update(id: string, updateUserDto: any) {
     return await this.userModel.findByIdAndUpdate(id, updateUserDto, { new: true }).populate('courses').exec();
   }
 
