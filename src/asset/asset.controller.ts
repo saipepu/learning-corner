@@ -44,6 +44,6 @@ export class AssetController {
   @ApiResponse(ApiNotSuccessResponseHelper())
   @Delete(':id')
   remove(@Param('id') id: string) {
-    return this.assetService.remove(+id);
+    return this.assetService.remove(id);
   }
 }

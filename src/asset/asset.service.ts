@@ -30,7 +30,7 @@ export class AssetService {
     return `This action updates a #${id} asset`;
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} asset`;
+  remove(id: string) {
+    return this.assetModel.findByIdAndDelete(id);
   }
 }

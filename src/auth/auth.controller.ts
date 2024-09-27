@@ -25,4 +25,11 @@ export class AuthController {
     return this.authService.signUp(body);
   }
 
+  @ApiResponse(ApiSuccessResponseHelper(SignInDto.name))
+  @ApiResponse(ApiNotSuccessResponseHelper())
+  @Post('signin/firebase')
+  signInWithFirebaseId(@Body() body: any) {
+    return this.authService.signInWithFirebaseId(body);
+  }
+
 }

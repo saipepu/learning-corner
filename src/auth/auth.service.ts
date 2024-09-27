@@ -49,4 +49,18 @@ export class AuthService {
 
   }
 
+  // sign in with firebase id
+  async signInWithFirebaseId(body: any): Promise<any> {
+    let user: any = await this.userService.findAll({ email: body.email })
+
+    if(!user || user.length === 0) {
+      this.signUp({ email: body.email, password: body.firebaseId, name: body.name })
+    }
+
+    user = user[0]
+
+    let dto = { ...user.toObject() }
+    return { ...dto }
+  }
+
 }
