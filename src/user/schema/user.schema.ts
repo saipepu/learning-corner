@@ -3,6 +3,7 @@ import { ApiProperty } from "@nestjs/swagger";
 import { Document } from "mongoose";
 import { Asset } from "src/asset/schema/asset.schema";
 import { Course } from "src/course/schema/course.schema";
+import mongoose from 'mongoose';
 
 @Schema({
   timestamps: true,
@@ -30,13 +31,13 @@ export class User extends Document {
   @Prop({ required: false, default: 0 })
   exp: number;
 
-  @ApiProperty({ example: 'User courses', description: 'User courses' })
-  @Prop({ type: [Course], default: [] })
-  courses: Course[];
+  @ApiProperty({ example: 'course _id', description: 'array of user course' })
+  @Prop({ type: [mongoose.Schema.Types.ObjectId], default: [] })
+  courseIds: Course[];
 
   // user asset
   @ApiProperty({ example: 'asset _id', description: 'array of user asset' })
-  @Prop({ type: [Asset], default: [] })
+  @Prop({ type: [mongoose.Schema.Types.ObjectId], default: [] })
   assets: Asset[];
 }
 

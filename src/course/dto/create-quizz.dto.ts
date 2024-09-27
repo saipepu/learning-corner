@@ -28,6 +28,12 @@ export class CreateQuizDto {
   @IsString()
   readonly photo: string;
 
+  // audio file name
+  @ApiProperty({ example: 'http://audio.com', description: 'Quiz audio url' })
+  @IsOptional()
+  @IsString()
+  readonly audioFile: string;
+
   @ApiProperty({ example: exampleOptions, description: 'Quiz options' })
   @IsNotEmpty()
   @IsArray()

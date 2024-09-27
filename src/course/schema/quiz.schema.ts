@@ -17,6 +17,11 @@ export class Quiz extends Document {
   @Prop()
   photo: string;
 
+  // audio file name
+  @ApiProperty({ example: 'http://audio.com', description: 'Quiz audio url' })
+  @Prop()
+  audioFile: string;
+
   @ApiProperty({ example: 'Quiz options', description: 'Quiz options' })
   @Prop({ type: [Option], default: [] })
   options: Option[];

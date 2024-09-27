@@ -18,6 +18,12 @@ export class CreateCourseDto {
   @IsString()
   readonly photo: string;
 
+  // youtube url
+  @ApiProperty({ example: 'http://youtube.com', description: 'Course video url' })
+  @IsOptional()
+  @IsString()
+  readonly youtubeLink: string;
+
   @ApiProperty({ example: 100, description: 'Course experience point' })
   @IsNotEmpty()
   @IsNumber()

@@ -2,6 +2,7 @@
   "quizzes": [
     {
       "question": "Xùn(อุ่น)",
+      "audioFile": "Warm",
       "options": [
         {
           "content": "Wait",
@@ -24,6 +25,7 @@
     },
     {
       "question": "Thorṣ̄ạphth̒(โทรศัพท์)",
+      "audioFile": "PhoneNumber",
       "options": [
         {
           "content": "Member Card",
@@ -46,6 +48,7 @@
     },
     {
       "question": "Mī khrạb(มีครับ)",
+      "audioFile": "IHave",
       "options": [
         {
           "content": "Enter",

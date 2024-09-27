@@ -20,6 +20,11 @@ export class Course extends Document {
   @Prop({ required: true })
   photo: string;
 
+  // youtube url
+  @ApiProperty({ example: 'http://youtube.com', description: 'Course video url' })
+  @Prop()
+  youtubeLink: string;
+
   @ApiProperty({ example: 100, description: 'Course experience point' })
   @Prop({ required: true })
   exp: number;
