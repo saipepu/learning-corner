@@ -56,12 +56,12 @@ export class AuthService {
 
     if(!user || user.length === 0) {
       this.signUp({ email: body.email, password: body.firebaseId, name: body.name })
+    } else {
+      user = user[0]
+      let dto = { ...user.toObject() }
+      return { ...dto }
     }
 
-    user = user[0]
-
-    let dto = { ...user.toObject() }
-    return { ...dto }
   }
 
 }
