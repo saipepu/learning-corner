@@ -4,8 +4,9 @@ import { ApiExtraModels, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { SignUpDto } from './dto/sign-up.dto';
 import { ApiNotSuccessResponseHelper, ApiSuccessResponseHelper } from 'src/helpers/swagger.helper';
 import { SignInDto } from './dto/sign-in.dto';
+import { SignUpFirebaseDto } from './dto/sign-up-firebase.dto';
 
-@ApiExtraModels(SignUpDto)
+@ApiExtraModels(SignUpDto, SignInDto, SignUpFirebaseDto)
 @ApiTags('Auth')
 @Controller('auth')
 export class AuthController {
@@ -28,7 +29,7 @@ export class AuthController {
   @ApiResponse(ApiSuccessResponseHelper(SignInDto.name))
   @ApiResponse(ApiNotSuccessResponseHelper())
   @Post('signin/firebase')
-  signInWithFirebaseId(@Body() body: any) {
+  signInWithFirebaseId(@Body() body: SignUpFirebaseDto) {
     return this.authService.signInWithFirebaseId(body);
   }
 

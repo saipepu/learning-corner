@@ -4,6 +4,7 @@ import * as bcrypt from 'bcryptjs';
 import { UserService } from 'src/user/user.service';
 import { SignInDto } from './dto/sign-in.dto';
 import { JwtService } from '@nestjs/jwt';
+import { SignUpFirebaseDto } from './dto/sign-up-firebase.dto';
 
 @Injectable()
 export class AuthService {
@@ -50,7 +51,7 @@ export class AuthService {
   }
 
   // sign in with firebase id
-  async signInWithFirebaseId(body: any): Promise<any> {
+  async signInWithFirebaseId(body: SignUpFirebaseDto): Promise<any> {
     let user: any = await this.userService.findAll({ email: body.email })
 
     if(!user || user.length === 0) {
